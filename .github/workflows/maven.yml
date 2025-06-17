@@ -43,11 +43,7 @@ jobs:
         reporter: java-junit
         fail-on-error: true
 
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: springboot-app
-        path: backend/target/*.jar
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph

@@ -57,6 +57,11 @@ public class DemoApplication {
 	@CrossOrigin
 	@PostMapping("/tasks")
 	public String addTask(@RequestBody String taskdescription) {
+
+		if (taskdescription == null || taskdescription.trim().isEmpty()) {
+			throw new IllegalArgumentException("Leere Aufgabenbeschreibung ist nicht erlaubt");
+		}
+
 		System.out.println("API EP '/tasks': '" + taskdescription + "'");
 		ObjectMapper mapper = new ObjectMapper();
 		try {

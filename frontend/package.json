@@ -1,6 +1,6 @@
 {
   
-  "name": "@michaelottenederwiss/demo-frontend",
+  "name": "m324/demo-frontend",
   "version": "1.0.0",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

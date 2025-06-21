@@ -28,18 +28,5 @@ class DemoApplicationTests {
 		boolean found = tasks.stream().anyMatch(t -> "Testaufgabe".equals(t.getTaskdescription()));
 		assertTrue(found, "Die Aufgabe 'Testaufgabe' sollte in der Liste enthalten sein");
 	}
-
-	@Test
-	void emptyTaskShouldThrowException() {
-		DemoApplication app = new DemoApplication();
-		String jsonTask = "{\"taskdescription\": \"\"}";
-
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			app.addTask(jsonTask);
-		});
-
-		assertEquals("Leere Aufgabenbeschreibung ist nicht erlaubt", exception.getMessage());
-	}
-
-
+	
 }

@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import logo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import meta.env.VITE_API_URL
+  
 function App() {
   const [count, setCount] = useState(0)
   const [todos, setTodos] = useState([]);
@@ -14,7 +15,7 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     console.log("Sending task description to Spring-Server: "+taskdescription);
-    fetch("http://localhost:8080/tasks", {  // API endpoint (the complete URL!) to save a taskdescription
+    fetch( meta.env.VITE_API_URL , {  // API endpoint (the complete URL!) to save a taskdescription
       method: "POST",
       headers: {
         "Content-Type": "application/json"

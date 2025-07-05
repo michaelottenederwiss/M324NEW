@@ -15,7 +15,7 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     console.log("Sending task description to Spring-Server: "+taskdescription);
-    fetch( meta.env.VITE_API_URL , {  // API endpoint (the complete URL!) to save a taskdescription
+    fetch( meta.env.VITE_API_URL + "tasks" , {  // API endpoint (the complete URL!) to save a taskdescription
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -47,7 +47,7 @@ function App() {
   ** It updates the component's state with the fetched todos from the API Endpoint '/'.
   */
   useEffect(() => {
-    fetch("http://localhost:8080/").then(response => response.json()).then(data => {
+    fetch(meta.env.VITE_API_URL).then(response => response.json()).then(data => {
       setTodos(data);
     });
   }, []);
@@ -58,7 +58,7 @@ function App() {
   */
   const handleDelete = (event, taskdescription) => {
     console.log("Sending task description to delete on Spring-Server: "+taskdescription);
-    fetch(`http://localhost:8080/delete`, { // API endpoint (the complete URL!) to delete an existing taskdescription in the list
+    fetch("meta.env.VITE_API_URL" + delete, { // API endpoint (the complete URL!) to delete an existing taskdescription in the list
       method: "POST",
       body: JSON.stringify({ taskdescription: taskdescription }),
       headers: {
